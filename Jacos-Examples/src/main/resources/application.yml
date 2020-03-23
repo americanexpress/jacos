@@ -1,0 +1,31 @@
+server:
+  servlet:
+    contextPath: /jacos
+  port: 8443
+
+spring:
+  jmx:
+    enabled: true
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+#Jacos Property file
+jacos:
+  sfdc:
+    security:
+      oauth2:
+        client:
+          access_token_uri: https://yourorg.salesforce.com/services/oauth2/token
+          client_id: xxx
+          client_secret: xxx
+          grant_type: refresh_token
+          refresh_token: xxx.xxx
+          content_type: 'application/x-www-form-urlencoded'
+    instance_url: 'https://youorg.my.salesforce.com'
+    api_version: 'v41.0'
+    chunkSizeInMB: 100
+    proxy:
+      proxyEnabled: true
+      host: yourproxyhost
+      port: yourport
+      timeout: 3200

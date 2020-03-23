@@ -1,0 +1,19 @@
+language: java
+
+cache:
+  directories:
+    - $HOME/.m2
+
+jdk:
+  - openjdk8
+
+
+script:
+  - mvn clean install -DskipTests=true
+
+deploy:
+  provider: script
+  script: mvn clean deploy -DskipTests=true --settings=".travis.settings.xml"
+  on:
+    tags: true
+    jdk: openjdk8
