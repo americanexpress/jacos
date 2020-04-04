@@ -24,7 +24,7 @@
 
 ### Get Started
 
-1. To use Salesforce Data Connector (SDC), Add the maven dependency in your project
+1. To use JaCoS, Add the maven dependency in your project
 
 ```xml
 <dependency>
