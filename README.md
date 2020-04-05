@@ -242,7 +242,7 @@ The Custom REST API operation is based on [Exposing Salesforce Apex Classes as R
 
 - To call any custom REST api developed and exposed through Salesforce 
 
-```yaml
+```java
 @Autowired
 private PartApi2Operations partApi2Operations;
 Form an  OperationInfo object using OperationInfo constructor like the following:
@@ -254,7 +254,7 @@ OperationInfo operationInfo = new OperationInfo(restUri, OperationEnum.CUSTOMRES
 
 - The OperationInfo object contains various metadata info for some salesforce operation. The constructor of operation Info is as follows:
 
-```yaml
+```java
 public OperationInfo(String restUri, OperationEnum operationType, String metaDataJson)
 ```
 
@@ -264,7 +264,7 @@ public OperationInfo(String restUri, OperationEnum operationType, String metaDat
 
 To call the API to send a record to the salesforce org using Custom REST API , use:
 
-```yaml
+```java
 response = partApi2Operations.performSFOperation(operationInfo, jsonBody);
 ```
 
