@@ -245,7 +245,7 @@ The Custom REST API operation is based on [Exposing Salesforce Apex Classes as R
 ```java
 @Autowired
 private PartApi2Operations partApi2Operations;
-Form an  OperationInfo object using OperationInfo constructor like the following:
+//Form an  OperationInfo object using OperationInfo constructor like the following:
 
 String metaDataJson = "{ \"method\": \"GET\"}";
 
