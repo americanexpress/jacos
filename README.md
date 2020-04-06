@@ -236,6 +236,38 @@ partApi2Operations.performSFOperation( operationInfo,  inputFile, outputFilePath
 ```
 Note: All header names in the input CSV should map to Salesforce API names.
 
+### Custom REST API Operation
+
+The Custom REST API operation is based on [Exposing Salesforce Apex Classes as REST Web Services](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_rest.htm)
+
+- To call any custom REST api developed and exposed through Salesforce 
+
+```java
+@Autowired
+private PartApi2Operations partApi2Operations;
+//Form an  OperationInfo object using OperationInfo constructor like the following:
+
+String metaDataJson = "{ \"method\": \"GET\"}";
+
+OperationInfo operationInfo = new OperationInfo(restUri, OperationEnum.CUSTOMRESTAPI, metaDataJson);
+```
+
+- The OperationInfo object contains various metadata info for some salesforce operation. The constructor of operation Info is as follows:
+
+```java
+public OperationInfo(String restUri, OperationEnum operationType, String metaDataJson)
+```
+
+- where restUri is the relative REST URI path of the Custom REST API exposed through Salesforce
+- operationType is the enum denoting operation which should have the value CUSTOMRESTAPI .
+- metaDataJson should contain a json string which currently supports a mandatory field called method. The value of the method should be the HTTP method of the custom REST API.
+
+To call the API to send a record to the salesforce org using Custom REST API , use:
+
+```java
+response = partApi2Operations.performSFOperation(operationInfo, jsonBody);
+```
+
 ### Contributing
 
 We welcome Your interest in the American Express Open Source Community on Github. Any Contributor to
